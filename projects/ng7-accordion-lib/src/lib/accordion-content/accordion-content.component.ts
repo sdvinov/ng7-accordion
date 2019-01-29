@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccordionContentComponent implements OnInit {
 
+  public expanded: boolean;
   constructor() { }
 
   ngOnInit() {

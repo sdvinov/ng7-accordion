@@ -1,3 +1,11 @@
 .accordion-content {
   padding: 20px;
 }
+
+.expanded {
+  display: block;
+}
+
+.collapsed {
+  display: none;
+}

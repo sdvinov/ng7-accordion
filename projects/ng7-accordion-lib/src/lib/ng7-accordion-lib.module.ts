@@ -4,6 +4,7 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
 import { AccordionHeaderComponent } from './accordion-header/accordion-header.component';
 import { AccordionContentComponent } from './accordion-content/accordion-content.component';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AccordionContentComponent } from './accordion-content/accordion-content
     AccordionContentComponent
   ],
   imports: [
+    BrowserModule,
   ],
   exports: [
     Ng7AccordionLibComponent,

@@ -2,8 +2,7 @@
   "name": "ng7-accordion",
   "version": "0.0.0",
   "scripts": {
-    "reload": "npm run build-lib && npm run start",
-    "build-lib": "ng build ng7-accordion-lib",
+    "build-lib": "ng build ng7-accordion-lib --watch",
     "npm-pack": "cd dist/ng7-accordion-lib && npm pack",
     "package": "npm run build-lib && npm run npm-pack",
     "ng": "ng",
