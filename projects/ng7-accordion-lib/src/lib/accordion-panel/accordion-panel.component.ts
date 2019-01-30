@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, Input, ViewChildren} from '@angular/core';
+import {OnChanges, Component, Input, AfterViewInit, ViewChildren, QueryList, ViewChild} from '@angular/core';
 import {AccordionContentComponent} from '../accordion-content/accordion-content.component';
 
 @Component({
@@ -6,16 +6,19 @@ import {AccordionContentComponent} from '../accordion-content/accordion-content.
   templateUrl: './accordion-panel.component.html',
   styleUrls: ['./accordion-panel.component.css']
 })
-export class AccordionPanelComponent implements AfterViewChecked {
+export class AccordionPanelComponent implements AfterViewInit {
 
-  @ViewChildren(AccordionContentComponent) public content: AccordionContentComponent;
-  @Input() public expanded = false;
+  // @ViewChildren(AccordionContentComponent) public accordionContentComponent: QueryList<any>;
+  @Input() expanded1: boolean;
+  public expanded;
 
   constructor() { }
 
-  ngAfterViewChecked() {
-    this.content.expanded = this.expanded;
-    console.log(this.content);
+  ngAfterViewInit() {
+    console.log(this.expanded1);
+    this.expanded = this.expanded1;
+    // console.log(this.expanded);
+    // console.log(this.accordionContentComponent);
   }
 
 }
