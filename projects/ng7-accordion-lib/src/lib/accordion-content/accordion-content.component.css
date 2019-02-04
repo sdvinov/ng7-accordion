@@ -1,8 +1,8 @@
 .accordion-content {
   padding: 20px;
-  display: block;
+  display: none;
 }
 
-.collapsed {
-  display: none;
+.expanded {
+  display: block;
 }

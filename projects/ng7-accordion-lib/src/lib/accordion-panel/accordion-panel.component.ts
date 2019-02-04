@@ -1,4 +1,10 @@
-import {OnChanges, Component, Input, AfterViewInit, ViewChildren, QueryList, ViewChild} from '@angular/core';
+import {
+  AfterContentChecked,
+  ChangeDetectorRef,
+  Component,
+  ContentChild,
+  Input,
+} from '@angular/core';
 import {AccordionContentComponent} from '../accordion-content/accordion-content.component';
 
 @Component({
@@ -6,19 +12,24 @@ import {AccordionContentComponent} from '../accordion-content/accordion-content.
   templateUrl: './accordion-panel.component.html',
   styleUrls: ['./accordion-panel.component.css']
 })
-export class AccordionPanelComponent implements AfterViewInit {
+export class AccordionPanelComponent implements  AfterContentChecked {
 
-  // @ViewChildren(AccordionContentComponent) public accordionContentComponent: QueryList<any>;
-  @Input() expanded1: boolean;
-  public expanded;
+  constructor(private ref: ChangeDetectorRef) { }
 
-  constructor() { }
+  @Input() public expanded;
+  @ContentChild(AccordionContentComponent) public content: AccordionContentComponent;
+  public id = 0;
+  public collapsedAll;
+  public hasExpandedInput;
 
-  ngAfterViewInit() {
-    console.log(this.expanded1);
-    this.expanded = this.expanded1;
-    // console.log(this.expanded);
-    // console.log(this.accordionContentComponent);
+  ngAfterContentChecked() {
+    this.ref.detectChanges();
+    if (this.collapsedAll) {
+      this.content.isOpened = false;
+    } else if (!this.hasExpandedInput && this.id === 0) {
+      this.content.isOpened = true;
+    } else {
+      this.content.isOpened = this.expanded;
+    }
   }
-
 }

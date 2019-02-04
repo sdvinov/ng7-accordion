@@ -1,20 +1,13 @@
-import {Component, AfterViewChecked, SimpleChanges} from '@angular/core';
-import {AccordionPanelComponent} from '../accordion-panel/accordion-panel.component';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'acc-accordion-content',
   templateUrl: './accordion-content.component.html',
   styleUrls: ['./accordion-content.component.css']
 })
-export class AccordionContentComponent extends AccordionPanelComponent implements AfterViewChecked {
+export class AccordionContentComponent {
 
-  constructor() {
-    super();
-  }
+  constructor() { }
 
-  ngAfterViewChecked() {
-    console.log(this.expanded);
-  }
-
-
+  public isOpened = false;
 }
